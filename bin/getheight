@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+alice6=`curl -s http://alice6.nem.ninja:7890/chain/height | jq '.height'`
+local=`curl -s http://localhost:7890/chain/height | jq '.height'`
+
+echo 'block height'
+echo 'remote: '$alice6
+echo ' local: '$local
+
+if [ $alice6 == $local ]; then
+  exit 0
+else
+  exit 1
+fi
