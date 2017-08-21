@@ -10,7 +10,9 @@ echo 'remote: '$alice6
 echo ' local: '$local
 
 if [ $alice6 == $local ]; then
+  echo 'sync: true'
   exit 0
 else
+  echo 'sync: false'
   exit 1
 fi
